@@ -1,5 +1,5 @@
 # Tubes STD Graph Map
-![Tux, the Linux mascot](./ilustrasi-graph/1.png)
+![Tux](./ilustrasi-graph/1.png)
 >run code bisa di coba di sini [HERE](https://onlinegdb.com/Wnj3MEe10)
 
 # Apa itu Struktur Data ?

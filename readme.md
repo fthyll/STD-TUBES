@@ -16,5 +16,5 @@
 # Pendahuluan Program
 >Dengan topik yang kami pilih yaitu Multi Linked List Graph 1 ke N, kami memutuskan untuk membuat Program "Jalur Kota", yang menunjukkan berapa banyak hubungan dalam 1 kota tersebut.
 
-![Tux, the Linux mascot](./ilustrasi-graph/2.png)
+![Tux](./ilustrasi-graph/2.png)
 

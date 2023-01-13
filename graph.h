@@ -40,6 +40,10 @@ adrNode findNode(Graph G,infotype x);
 bool isConnected(Graph G, infotype x, infotype y);
 int countNodeDegree(adrNode P);
 
+void deleteNode(Graph &G, adrNode P);                   // menghapus node
+void deleteNodeConnection(Graph &G, adrNode P);         //menghapus hubungan kepada node yang akan kau hapu
+void deleteEdge(Graph &G, adrNode P,infotype x);        // mengapus edge pada edge list
+
 void printGraph(Graph G);
 void PrintEdgeOfNode(Graph G,adrNode P);
 void printMostConnection(Graph G);

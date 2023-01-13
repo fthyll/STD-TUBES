@@ -86,6 +86,65 @@ adrNode findNode(Graph G,infotype x){
     return NULL;
 };
 
+// function untuk menghapus node dari List Graph
+void deleteNode(Graph &G, adrNode P){
+    adrNode Q = start(G);
+    if (Q != NULL){
+        if (P == start(G)){                         // pengecekan jika P berapa diawal graph, jika iya deleteFirst Node
+            start(G) = next(P);
+            next(P) = NULL;
+            deleteNodeConnection(G,P);              // penghapusan semua edge yang berhubungan dengan adrNode P
+        }else if (next(P) == NULL) {                // pengecekan jika P berapa diakhir graph, jika iya deleteLast
+            while ( next(next(Q)) != NULL){
+                Q = next(Q);
+            }
+            next(Q) = NULL;
+            deleteNodeConnection(G,P);              // penghapusan semua edge yang berhubungan dengan adrNode P
+        }else {
+            while(next(Q) != NULL && next(Q) != P){ // pengambilan elemen sebelum elemen terakhir, sehingga cover link
+                Q = next(Q);
+            }
+            if (Q != NULL){
+                next(Q) = next(P);
+                next(P) = NULL;
+                deleteNodeConnection(G,P);          // penghapusan semua edge yang berhubungan dengan adrNode P
+            }
+        }
+    }
+};
+// function untuk menghapus connection dengan menggunakan binary search,
+void deleteNodeConnection(Graph &G, adrNode P){
+    adrNode Q = start(G);
+    adrEdge R;
+    while (Q != NULL){                     // looping untuk melakukan pencarian pada list childnya
+        R = firstEdge(Q);
+        while(R != NULL){                  // looping untuk melakukan pengecekan info R dan info P
+            if (info(R) == info(P)){
+                deleteEdge(G,Q,info(P));    // memanggil deleteEdge untuk menghapus edge pada list edge dari node P
+            }
+            R = next(R);
+        }
+        Q = next(Q);
+    }
+};
+// menghapus edge dari list edge pada node P,
+void deleteEdge(Graph &G, adrNode P,infotype x){
+    adrEdge edgeX,tempEdge;
+    if (firstEdge(P) != NULL){                                  // pengecekan jika edge tidak kosong
+        if (info(firstEdge(P)) == x){                           // pengecekan jika edge berada di firstEdge, jika iya maka deleteFirst edge
+            edgeX = firstEdge(P);
+            firstEdge(P) = next(edgeX);
+            next(edgeX) = NULL;
+        }else {
+            edgeX = firstEdge(P);
+            while (next(edgeX) != NULL && info(next(edgeX)) != x){ // looping untuk menunjuk ke elemen sebelum x, untuk melakukan deleteAfter dan deleteLast
+                edgeX = next(edgeX);
+            }
+            tempEdge = next(edgeX);
+            next(edgeX) = NULL;
+        }
+    }
+};
 bool isConnected(Graph G, infotype x, infotype y){
     adrNode P = start(G);
     adrEdge Q;
@@ -186,6 +245,7 @@ void showMenu() {
     cout << "4. Menampilkan Kota yang memiliki jalur terbanyak" << endl;
     cout << "5. Menampilkan Semua Kota" << endl;
     cout << "6. Menampilkan Graph" << endl;
+    cout << "7. Menghapus Kota" << endl;
     cout << "0. exit" << endl;
     cout << "========================================" << endl;
 }

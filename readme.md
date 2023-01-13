@@ -1,6 +1,6 @@
 # Tubes STD Graph Map
 ![Tux](./ilustrasi-graph/1.png)
->run code bisa di coba di sini [HERE](https://onlinegdb.com/Wnj3MEe10)
+>run code bisa di coba di sini [HERE](https://onlinegdb.com/0AEXtkkKK)
 
 # Apa itu Struktur Data ?
 >Struktur data adalah cara menyimpan dan mengatur data secara terstruktur pada sistem komputer atau database sehingga lebih mudah diakses. Secara teknis, data dalam bentuk angka, huruf, simbol, dan lainnya ini diletakkan dalam kolom-kolom dan susunan tertentu. 
